@@ -1,0 +1,7 @@
+﻿@USSCerritosHelpDesk_HostAddress = http://localhost:5072
+
+GET {{USSCerritosHelpDesk_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
