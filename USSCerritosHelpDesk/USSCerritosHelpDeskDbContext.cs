@@ -1,0 +1,25 @@
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http.Json;
+using Microsoft.Extensions.Hosting;
+using USSCerritosHelpDesk.Data;
+using USSCerritosHelpDesk.Models;
+
+public class USSCerritosHelpDeskDbContext : DbContext
+{
+    public DbSet<Item> Items { get; set; }
+    public DbSet<Solution> Solutions { get; set; }
+    public DbSet<Ticket> Tickets { get; set; }
+    public DbSet<TicketItem> TicketItems { get; set; }
+    public DbSet<User> Users { get; set; }
+
+    public USSCerritosHelpDeskDbContext(DbContextOptions<USSCerritosHelpDeskDbContext> options) : base(options)
+    {
+
+    }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Item>().HasData(ItemData.Items);
+    }
+}
+
