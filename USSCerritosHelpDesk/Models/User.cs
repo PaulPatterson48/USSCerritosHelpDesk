@@ -9,7 +9,6 @@ public class User
 	[Required]
     public int DepartmentId { get; set; }
 	[Required]
-	public string DepartmentName { get; set; }
     public string FirstName { get; set; }
 	public string LastName { get; set; }
 	public string CommBageId { get; set; }
