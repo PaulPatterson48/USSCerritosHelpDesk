@@ -30,6 +30,7 @@ public class USSCerritosHelpDeskDbContext : DbContext
         modelBuilder.Entity<Ticket>().HasData(TicketData.Tickets);
         modelBuilder.Entity<User>().HasData(UserData.Users);
         modelBuilder.Entity<Solution>().HasData(SolutionData.Solutions);
+        modelBuilder.Entity<TicketItem>().HasData(TicketItemData.TicketItems);
     }
 }
 
