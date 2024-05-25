@@ -11,7 +11,7 @@ public static class UserAPI
 	{
 		app.MapPost("/api/createUser", (USSCerritosHelpDeskDbContext db, User newUser) =>
 		{
-			db.Users.Ad(newUser);
+			db.Users.Add(newUser);
 			db.SaveChanges();
 
             return Results.Created($"/api/createUser/{newUser}", newUser);
