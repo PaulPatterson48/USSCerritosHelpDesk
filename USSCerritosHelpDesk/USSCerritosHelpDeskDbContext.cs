@@ -14,6 +14,8 @@ public class USSCerritosHelpDeskDbContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<Status> Statuses { get; set; }
+    public DbSet<Department> Departments { get; set; }
+   
 
     public USSCerritosHelpDeskDbContext(DbContextOptions<USSCerritosHelpDeskDbContext> options) : base(options)
     {
@@ -24,6 +26,10 @@ public class USSCerritosHelpDeskDbContext : DbContext
         modelBuilder.Entity<Item>().HasData(ItemData.Items);
         modelBuilder.Entity<Category>().HasData(CategoryData.Categories);
         modelBuilder.Entity<Status>().HasData(StatusData.Statuses);
+        modelBuilder.Entity<Department>().HasData(DepartmentData.Departments);
+        modelBuilder.Entity<Ticket>().HasData(TicketData.Tickets);
+        modelBuilder.Entity<User>().HasData(UserData.Users);
+        modelBuilder.Entity<Solution>().HasData(SolutionData.Solutions);
     }
 }
 

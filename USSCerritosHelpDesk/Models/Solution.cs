@@ -6,7 +6,8 @@ public class Solution
 {
 	public int Id { get; set; }
 	[Required]
-	public string SolutionText { get; set; }
+	public int TicketId { get; set; }
+	public Ticket Tickets { get; set; }
 	public DateTime SolveDate { get; set; }
 }
 

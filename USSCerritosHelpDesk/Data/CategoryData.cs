@@ -1,5 +1,6 @@
 ﻿using System;
 using USSCerritosHelpDesk.Models;
+
 namespace USSCerritosHelpDesk.Data;
 
 public  class CategoryData
