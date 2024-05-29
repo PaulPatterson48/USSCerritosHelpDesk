@@ -8,7 +8,7 @@ public class TicketItem
 	public int Id { get; set; }
 	[Required]
 	public int TicketId { get; set; }
-	[Required]
+	public int UserId { get; set; }
     public int ItemId { get; set; }
 }
 
