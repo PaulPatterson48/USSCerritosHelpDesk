@@ -9,15 +9,17 @@ public class TicketData
 	public static List<Ticket> Tickets = new List<Ticket>
 	{
 		new Ticket
-		    {Id = 1,
-		    Title ="Add Captain Freeman to the Command Console",
-		    Description ="Captain Freeman is the new commander of this starship please add her to all command functions",
-		    CommentDate = new DateTime (2024, 1,2),
-		    UpdateDate = new DateTime (2024, 1, 3),
-            StatusId = 1,
-		    UserId = 5,
-		    AssignedToUserId = 1
-		    },
+		    {
+                Id = 1,
+		        Title ="Add Captain Freeman to the Command Console",
+		        Description ="Captain Freeman is the new commander of this starship please add her to all command functions",
+		        CommentDate = new DateTime (2024, 1,2),
+		        UpdateDate = new DateTime (2024, 1, 3),
+                StatusId = 1,
+		        UserId = 5,
+		        AssignedToUserId = 1,
+                Priority = "High"
+            },
 
         new Ticket
             {
@@ -31,7 +33,8 @@ public class TicketData
                 DepartmentId = 2,
                 CategoryId = 2,
                 Priority = "Medium",
-                AssignedToUserId = 1
+                AssignedToUserId = 1,
+                
             },
         new Ticket
             {
