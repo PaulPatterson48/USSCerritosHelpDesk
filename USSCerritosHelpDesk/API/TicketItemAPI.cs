@@ -138,7 +138,6 @@ namespace USSCerritosHelpDesk.API
                 return Results.Ok(ticket);
             });
 
-
         }
     }
 }

@@ -49,6 +49,9 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 UserAPI.Map(app);
+ItemAPI.Map(app);
+TicketAPI.Map(app);
+TicketItemAPI.Map(app);
 
 app.Run();
 
