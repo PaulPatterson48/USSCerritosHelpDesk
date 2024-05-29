@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Http.Json;
 using USSCerritosHelpDesk.API;
-using Microsoft.AspNetCore.Components.Forms;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +17,7 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://localhost:3000", "http://localhost:5273")
+        policy.WithOrigins("http://localhost:3000", "http://localhost:5003")
         .AllowAnyMethod()
         .AllowAnyHeader();
     });
