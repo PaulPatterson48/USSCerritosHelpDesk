@@ -50,7 +50,7 @@ namespace USSCerritosHelpDesk.API
 				ticketToUpdate.Description = updateTicket.Description;
 				ticketToUpdate.StatusId = updateTicket.StatusId;
 				db.SaveChanges();
-				return Results.NoContent();
+				return Results.Ok(ticketToUpdate);
 			});
 			//Delete a Ticket
 			app.MapDelete("/api/deleteTicket/{id}", (USSCerritosHelpDeskDbContext db, int id) =>
