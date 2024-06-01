@@ -138,6 +138,33 @@ namespace USSCerritosHelpDesk.API
                 return Results.Ok(ticket);
             });
 
+            // Add a new TicketItem
+            app.MapPost("/api/createTicketItem", async (USSCerritosHelpDeskDbContext db, TicketItem request) =>
+            {
+                // Validate the incoming request
+                if (request == null || request.TicketId == 0 || request.ItemId == 0 || request.UserId == 0)
+                {
+                    return Results.BadRequest("Invalid ticket item request data.");
+                }
+
+                // Create a new ticket item
+                var newTicketItem = new TicketItem
+                {
+                    TicketId = request.TicketId,
+                    ItemId = request.ItemId,
+                    UserId = request.UserId,
+                   
+                    
+                };
+
+                // Add the new ticket item to the database
+                db.TicketItems.Add(newTicketItem);
+                await db.SaveChangesAsync();
+
+                // Return the created ticket item
+                return Results.Created($"/api/getTicketItem/{newTicketItem.Id}", newTicketItem);
+            });
+
         }
     }
 }
