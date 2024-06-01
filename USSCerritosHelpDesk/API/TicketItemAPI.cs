@@ -157,6 +157,24 @@ namespace USSCerritosHelpDesk.API
                 return Results.Created($"/api/getTicketItem/{newTicketItem.Id}", newTicketItem);
             });
 
+            app.MapDelete("/api/deleteTicketItem/{ticketItemId}", async (USSCerritosHelpDeskDbContext db, int ticketItemId) =>
+            {
+                // Find the ticket item by its ID
+                var ticketItem = await db.TicketItems.FindAsync(ticketItemId);
+
+                // Check if the ticket item exists
+                if (ticketItem == null)
+                {
+                    return Results.NotFound("Ticket item not found.");
+                }
+
+                // Remove the ticket item from the database
+                db.TicketItems.Remove(ticketItem);
+                await db.SaveChangesAsync();
+
+                // Return a success message
+                return Results.Ok("Ticket item deleted successfully.");
+            });
         }
     }
 }
