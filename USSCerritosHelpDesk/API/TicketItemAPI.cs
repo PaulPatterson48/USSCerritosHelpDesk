@@ -19,14 +19,8 @@ namespace USSCerritosHelpDesk.API
                 // Retrieve the tickets for the specified user
                 var userTickets = db.TicketItems
                     .Where(ti => ti.UserId == userId)
-                    .Join(db.Tickets,
-                          ti => ti.TicketId, 
-                          t => t.Id,
-                          (ti, t) => new
-                          {
-                              TicketItem = ti,
-                              Ticket = t
-                          }).ToList();
+                    .Include(userId => userId.Item)
+                    .ToList();
 
                 // Check if there are no tickets for the user
                 if (userTickets == null || !userTickets.Any())
