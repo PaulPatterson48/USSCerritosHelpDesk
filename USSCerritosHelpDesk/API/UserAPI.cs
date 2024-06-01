@@ -45,7 +45,7 @@ public static class UserAPI
 			userToUpdate.Role = updateUser.Role;
 			userToUpdate.DepartmentId = updateUser.DepartmentId;
 			db.SaveChanges();
-			return Results.NoContent();
+			return Results.Ok(userToUpdate);
 
 		});
 		
