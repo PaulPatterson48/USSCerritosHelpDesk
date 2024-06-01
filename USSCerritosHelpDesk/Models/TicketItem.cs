@@ -10,5 +10,7 @@ public class TicketItem
 	public int TicketId { get; set; }
 	public int UserId { get; set; }
     public int ItemId { get; set; }
+
+	public Item Item { get; set; }
 }
 

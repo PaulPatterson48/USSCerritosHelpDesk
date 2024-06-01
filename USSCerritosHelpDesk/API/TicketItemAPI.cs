@@ -44,11 +44,9 @@ namespace USSCerritosHelpDesk.API
                 // Retrieve the items for the specified ticket
                 var ticketItems = db.TicketItems
                     .Where(ti => ti.TicketId == ticketId)
-                    .Join(db.Items,
-                          ti => ti.ItemId,
-                          i => i.Id,
-                          (ti, i) => i)
+                    .Include(ticketId => ticketId.Item)
                     .ToList();
+
 
                 // Check if there are no items for the ticket
                 if (ticketItems == null || !ticketItems.Any())
