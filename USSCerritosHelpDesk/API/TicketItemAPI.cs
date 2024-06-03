@@ -157,10 +157,11 @@ namespace USSCerritosHelpDesk.API
                 return Results.Created($"/api/getTicketItem/{newTicketItem.Id}", newTicketItem);
             });
 
-            app.MapDelete("/api/deleteTicketItem/{ticketItemId}", async (USSCerritosHelpDeskDbContext db, int ticketItemId) =>
+            app.MapDelete("/api/deleteTicketItem/{ticketId}/{itemId}", async (USSCerritosHelpDeskDbContext db, int ticketId, int itemId) =>
             {
-                // Find the ticket item by its ID
-                var ticketItem = await db.TicketItems.FindAsync(ticketItemId);
+                // Find the ticket item by ticket ID and item ID
+                var ticketItem = await db.TicketItems
+                    .FirstOrDefaultAsync(ti => ti.TicketId == ticketId && ti.ItemId == itemId);
 
                 // Check if the ticket item exists
                 if (ticketItem == null)
@@ -175,6 +176,7 @@ namespace USSCerritosHelpDesk.API
                 // Return a success message
                 return Results.Ok("Ticket item deleted successfully.");
             });
+
         }
     }
 }
